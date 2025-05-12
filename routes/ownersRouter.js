@@ -24,10 +24,10 @@ let {fullname , email , password} = req.body;
     res.status(201).send(createdOwner);
 });
 }
-router.get("/" ,function(req,res){
-    res.send("welcome to owners");
+router.get("/admin" ,function(req,res){
+   let success =  req.flash("success" );
+    res.render("createproducts" , {success});
     
 });
-
 
 module.exports = router;

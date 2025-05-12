@@ -1,0 +1,62 @@
+<%- include('./partials/header') %>
+
+<% if(success.length > 0) { %>
+  <div class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-500 px-6 py-3 rounded-md shadow-md z-50">
+    <span class="text-white font-medium">
+      <%= success %>
+    </span>
+  </div>
+<% } %>
+
+<div class="min-h-screen flex flex-col items-center px-4 md:px-10 py-10">
+  <div class="w-full max-w-7xl flex flex-col md:flex-row gap-6">
+
+    <!-- Sidebar -->
+    <div class="w-full md:w-1/4 flex flex-col">
+      <a href="" class="mb-2 text-blue-600 hover:underline">All Products</a>
+      <a href="" class="mb-2 text-blue-600 hover:underline">Create New Product</a>
+    </div>
+
+    <!-- Main Form Section -->
+    <main class="w-full md:w-3/4 bg-white p-6 rounded-md shadow">
+      <h2 class="text-xl font-bold mb-6">Create New Product</h2>
+      
+      <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data" class="space-y-6">
+        
+        <!-- Product Details -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Product Details</h3>
+          
+          <div class="mb-4">
+            <label class="block font-medium mb-2">Product Image</label>
+            <input type="file" name="image" class="block w-full border p-2 rounded" required>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Product Name" name="name" class="border p-2 rounded w-full" required>
+            <input type="text" placeholder="Product Price" name="price" class="border p-2 rounded w-full" required>
+            <input type="text" placeholder="Discount Price" name="discount" class="border p-2 rounded w-full">
+          </div>
+        </div>
+
+        <!-- Panel Details -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Panel Details</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Background Color" name="bgcolor" class="border p-2 rounded w-full">
+            <input type="text" placeholder="Panel Color" name="panelcolor" class="border p-2 rounded w-full">
+            <input type="text" placeholder="Text Color" name="textcolor" class="border p-2 rounded w-full">
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <input type="submit" value="Create New Product" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded transition duration-200">
+        </div>
+      </form>
+    </main>
+
+  </div>
+</div>
+
+<%- include('./partials/footer') %>

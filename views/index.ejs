@@ -1,0 +1,52 @@
+<%- include('./partials/header') %>
+
+<% if(error.length > 0) { %>
+  <div class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-red-500 px-6 py-3 rounded-md shadow-md z-50">
+    <span class="text-white font-medium">
+      <%= error %>
+    </span>
+  </div>
+<% } %>
+
+<div class="min-h-screen flex flex-col justify-center px-4 sm:px-10 py-10">
+  <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
+
+    <!-- Register Form -->
+    <div class="w-full md:w-1/2 p-8 md:p-12 flex items-center justify-center">
+      <div class="w-full">
+        <h3 class="text-3xl md:text-4xl font-semibold mb-2">
+          Welcome to <span class="text-blue-500 font-bold tracking-tight">Scatch</span>
+        </h3>
+        <h4 class="text-lg md:text-2xl mb-6">Create your account</h4>
+        <form autocomplete="off" action="/users/register" method="post" class="space-y-4">
+          <input type="text" name="fullname" placeholder="Full Name"
+                 class="bg-zinc-100 w-full px-4 py-2 border border-zinc-200 rounded-md" required>
+          <input type="email" name="email" placeholder="Email"
+                 class="bg-zinc-100 w-full px-4 py-2 border border-zinc-200 rounded-md" required>
+          <input type="password" name="password" placeholder="Password"
+                 class="bg-zinc-100 w-full px-4 py-2 border border-zinc-200 rounded-md" required>
+          <input type="submit" value="Create My Account"
+                 class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition">
+        </form>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="w-full md:w-1/2 bg-gray-50 p-8 md:p-12 flex items-center justify-center">
+      <div class="w-full">
+        <h4 class="text-lg md:text-2xl font-semibold mb-6">Login to your account</h4>
+        <form autocomplete="off" action="/users/login" method="post" class="space-y-4">
+          <input type="email" name="email" placeholder="Email"
+                 class="bg-zinc-100 w-full px-4 py-2 border border-zinc-200 rounded-md" required>
+          <input type="password" name="password" placeholder="Password"
+                 class="bg-zinc-100 w-full px-4 py-2 border border-zinc-200 rounded-md" required>
+          <input type="submit" value="Login"
+                 class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition">
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('./partials/footer') %>
